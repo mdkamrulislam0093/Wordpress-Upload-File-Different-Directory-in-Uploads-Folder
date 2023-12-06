@@ -8,7 +8,7 @@
         $_filter = true;
         add_filter( 'upload_dir', function( $arr ) use( &$_filter ){
             if ( $_filter ) {
-                $folder = '/WPL/users/' . $_POST['user_id']; 
+                $folder = '/WPL/users/'; 
 
                 $arr['path'] = $arr['basedir'] . $folder;
                 $arr['url'] = $arr['baseurl'] . $folder;
@@ -19,7 +19,7 @@
 
 
         $upload_dir = wp_upload_dir();
-        $user_upload_dir = $upload_dir['basedir'] . '/WPL/users/'. $_POST['user_id'] .'/thprofile_60x60.png';
+        $user_upload_dir = $upload_dir['basedir'] . '/WPL/users/thprofile_60x60.png';
 
         if (file_exists($user_upload_dir)) {
             wp_delete_file($user_upload_dir);
